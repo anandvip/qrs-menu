@@ -9,11 +9,13 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: #1976d2;
             color: white;
             text-align: center;
             padding: 1rem 0;
@@ -34,11 +36,12 @@
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
 
         h2 {
             color: #333;
-            border-bottom: 2px solid #4CAF50;
+            border-bottom: 2px solid #1976d2;
             padding-bottom: 0.5rem;
         }
 
@@ -60,16 +63,66 @@
         footer {
             text-align: center;
             padding: 1rem 0;
-            background-color: #4CAF50;
+            background-color: #1976d2;
             color: white;
             margin-top: 2rem;
             font-size: 0.9rem;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: #155a9c;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        .dark-mode .category {
+            background-color: #1e1e1e;
+        }
+
+        .dark-mode h2 {
+            color: #f5f5f5;
+            border-bottom: 2px solid #90caf9;
+        }
+
+        .dark-mode ul li strong {
+            color: #f5f5f5;
+        }
+
+        .dark-mode header,
+        .dark-mode footer {
+            background-color: #333;
+        }
+
+        .dark-mode #theme-toggle {
+            background-color: #555;
+            color: #f5f5f5;
+        }
+
+        .dark-mode #theme-toggle:hover {
+            background-color: #666;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>QRS Wellness Centre Menu</h1>
+        <button id="theme-toggle">Toggle Theme</button>
     </header>
 
     <section id="menu">
@@ -121,5 +174,13 @@
     <footer>
         <p>Note: Prices are indicative and may vary based on location, taxes, and other factors.</p>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
